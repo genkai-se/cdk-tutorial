@@ -9,13 +9,13 @@ package main
 // )
 
 // example tests. To run these tests, uncomment this file along with the
-// example resource in app_test.go
-// func TestAppStack(t *testing.T) {
+// example resource in tutorial-01_test.go
+// func TestTutorial01Stack(t *testing.T) {
 // 	// GIVEN
 // 	app := awscdk.NewApp(nil)
 
 // 	// WHEN
-// 	stack := NewAppStack(app, "MyStack", nil)
+// 	stack := NewTutorial01Stack(app, "MyStack", nil)
 
 // 	// THEN
 // 	template := assertions.Template_FromStack(stack)

@@ -2,7 +2,7 @@ FROM node:20.6-slim
 
 ENV TZ Asia/Tokyo
 
-# install golang and setting
+# Go言語もろもろインストール
 RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean \
@@ -22,12 +22,12 @@ RUN go install github.com/go-delve/delve/cmd/dlv@latest
 RUN go install honnef.co/go/tools/cmd/staticcheck@latest
 RUN go install golang.org/x/tools/gopls@latest
 
-# install AWS CLI
+# AWS CLIのインストール
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.13.25.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
 RUN ./aws/install
 RUN rm -rf awscliv2.zip
 RUN rm -rf /aws
 
-# install AWS CDK
+# AWS CDKのインストール
 RUN npm install -g aws-cdk@2.94.0

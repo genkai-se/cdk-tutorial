@@ -2,17 +2,16 @@ package main
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-
 	// "github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 )
 
-type AppStackProps struct {
+type Tutorial01StackProps struct {
 	awscdk.StackProps
 }
 
-func NewAppStack(scope constructs.Construct, id string, props *AppStackProps) awscdk.Stack {
+func NewTutorial01Stack(scope constructs.Construct, id string, props *Tutorial01StackProps) awscdk.Stack {
 	var sprops awscdk.StackProps
 	if props != nil {
 		sprops = props.StackProps
@@ -22,7 +21,7 @@ func NewAppStack(scope constructs.Construct, id string, props *AppStackProps) aw
 	// The code that defines your stack goes here
 
 	// example resource
-	// queue := awssqs.NewQueue(stack, jsii.String("AppQueue"), &awssqs.QueueProps{
+	// queue := awssqs.NewQueue(stack, jsii.String("Tutorial01Queue"), &awssqs.QueueProps{
 	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
 	// })
 
@@ -34,18 +33,12 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	NewAppStack(app, "AppStack", &AppStackProps{
+	NewTutorial01Stack(app, "Tutorial01Stack", &Tutorial01StackProps{
 		awscdk.StackProps{
 			Env: env(),
 		},
 	})
-	/*
-		awss3.NewBucket(stack, jsii.String("MyFirstBucket"), &awss3.BucketProps{
-			Versioned:         jsii.Bool(true),
-			RemovalPolicy:     awscdk.RemovalPolicy_DESTROY,
-			AutoDeleteObjects: jsii.Bool(true),
-		})
-	*/
+
 	app.Synth(nil)
 }
 
