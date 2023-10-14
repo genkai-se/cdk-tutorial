@@ -9,13 +9,13 @@ package main
 // )
 
 // example tests. To run these tests, uncomment this file along with the
-// example resource in tutorial-01_test.go
-// func TestTutorial01Stack(t *testing.T) {
+// example resource in hello-cdk_test.go
+// func TestHelloCdkStack(t *testing.T) {
 // 	// GIVEN
 // 	app := awscdk.NewApp(nil)
 
 // 	// WHEN
-// 	stack := NewTutorial01Stack(app, "MyStack", nil)
+// 	stack := NewHelloCdkStack(app, "MyStack", nil)
 
 // 	// THEN
 // 	template := assertions.Template_FromStack(stack)

@@ -1,4 +1,4 @@
-module tutorial-01
+module hello-cdk
 
 go 1.18
 

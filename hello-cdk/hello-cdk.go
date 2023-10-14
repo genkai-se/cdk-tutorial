@@ -2,16 +2,18 @@ package main
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+
 	// "github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 )
 
-type Tutorial01StackProps struct {
+type HelloCdkStackProps struct {
 	awscdk.StackProps
 }
 
-func NewTutorial01Stack(scope constructs.Construct, id string, props *Tutorial01StackProps) awscdk.Stack {
+func NewHelloCdkStack(scope constructs.Construct, id string, props *HelloCdkStackProps) awscdk.Stack {
 	var sprops awscdk.StackProps
 	if props != nil {
 		sprops = props.StackProps
@@ -21,7 +23,7 @@ func NewTutorial01Stack(scope constructs.Construct, id string, props *Tutorial01
 	// The code that defines your stack goes here
 
 	// example resource
-	// queue := awssqs.NewQueue(stack, jsii.String("Tutorial01Queue"), &awssqs.QueueProps{
+	// queue := awssqs.NewQueue(stack, jsii.String("HelloCdkQueue"), &awssqs.QueueProps{
 	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
 	// })
 
@@ -33,11 +35,12 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	NewTutorial01Stack(app, "Tutorial01Stack", &Tutorial01StackProps{
+	stack := NewHelloCdkStack(app, "HelloCdkStack", &HelloCdkStackProps{
 		awscdk.StackProps{
 			Env: env(),
 		},
 	})
+	awss3.NewBucket(stack, jsii.String("HelloBucket"), &awss3.BucketProps{})
 
 	app.Synth(nil)
 }
